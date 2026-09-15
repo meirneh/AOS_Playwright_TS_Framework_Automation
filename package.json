@@ -1,0 +1,23 @@
+{
+  "name": "aos-playwright-ts-framework-automation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright and TypeScript automation framework for Advantage Online Shopping.",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test tests/api",
+    "test:ui": "playwright test tests/ui",
+    "test:ui:stage": "playwright test tests/ui/home-page-tests.spec.ts tests/ui/user-authentication-tests.spec.ts tests/ui/checkout-tests.spec.ts --grep \"TC-(001|039|067)\"",
+    "report": "playwright show-report reports/playwright-report",
+    "report:clean": "node -e \"const fs = require('fs'); for (const path of ['reports/allure-results', 'reports/allure-report', 'reports/playwright-report', 'test-results']) fs.rmSync(path, { recursive: true, force: true });\"",
+    "allure:generate": "allure generate reports/allure-results --clean --output reports/allure-report",
+    "allure:open": "allure open reports/allure-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "@types/node": "^24.0.3",
+    "allure-commandline": "^2.43.0",
+    "allure-playwright": "^3.3.1",
+    "typescript": "^5.8.3"
+  }
+}
